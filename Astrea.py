@@ -30,6 +30,7 @@ def fuzz_local():
             if not args.quiet:
                 print("[+]Fuzzing binary with " + str(i) + " characters")
             if os.system("python -c \'print \"A\"*" + str(i) + "\' | xargs " + args.file + " >/dev/null"):
+                print("Segfault with input length " + str(i))
                 sys.exit(0)
 
 
